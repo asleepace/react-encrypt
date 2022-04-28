@@ -36,3 +36,38 @@
     transform: rotate(360deg);
   }
 }
+
+.container {
+  background-color: rgba(0, 0, 0, 0.3);
+  justify-content: space-between;
+  flex-direction: row;
+  border-radius: 8px;
+  padding: 16px 16px;
+  display: flex;
+  width: 600px;
+}
+
+#message {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+  font-size: large;
+  color: white;
+  flex: 1;
+}
+
+button {
+  background-color:cornflowerblue;
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  outline: none;
+  padding: 8px 16px;
+  margin-left: 16px;
+  font-size: large;
+}
+
+button:hover {
+  background-color:darkgoldenrod;
+}
