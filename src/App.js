@@ -21,7 +21,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{message}</p>
+        <h1>Encrypt / Decrypt</h1>
+        <div className='output'>{message}</div>
         <div className="container">
           <input id="message" type="text" placeholder='enter your message'></input>
           <button onClick={() => onEncrypt()}>encrypt</button>

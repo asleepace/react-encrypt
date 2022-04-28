@@ -15,12 +15,13 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: calc(100vh - 128px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
+  padding-top: 128px;
   color: white;
 }
 
@@ -70,4 +71,18 @@ button {
 
 button:hover {
   background-color:darkgoldenrod;
+}
+
+.output {
+  max-width: 60%;
+  padding-bottom: 32px;
+  word-break:break-all;
+  overflow: visible;
+  flex-wrap: wrap;
+  display: flex;
+  /* flex-grow: 1; */
+}
+
+body {
+
 }

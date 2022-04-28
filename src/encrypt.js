@@ -1,5 +1,6 @@
 // https://github.com/mdn/dom-examples/blob/master/web-crypto/encrypt-decrypt/aes-cbc.js
-let key, iv, cipher
+const AES_GCM = 'AES-GCM'
+let key, iv, cipher, name = AES_GCM
 
 function getMessage() {
   const input = document.getElementById('message')
@@ -14,17 +15,23 @@ function getNewIV() {
 
 function encrypt(message) {
   console.log({ iv, key })
-  return window.crypto.subtle.encrypt({ name: 'AES-CBC', iv }, key, message)
+  return window.crypto.subtle.encrypt({ name, iv }, key, message)
 }
 
 function decrypt() {
   console.log({ iv, key, cipher })
-  return window.crypto.subtle.decrypt({ name: 'AES-CBC', iv }, key, cipher )
+  return window.crypto.subtle.decrypt({ name, iv }, key, cipher )
 }
 
 function generateKey() {
-  return window.crypto.subtle.generateKey({ name: "AES-CBC", length: 256 },
+  return window.crypto.subtle.generateKey({ name, length: 256 },
     true, ["encrypt", "decrypt"])
+}
+
+function generateHash(stream) {
+  const array = new Array(stream)
+  console.log(array)
+  return array.map(b => b.toString(16).padStart(2, 0)).join('')
 }
 
 // fetches the text in a the box and encrypts it
@@ -34,7 +41,9 @@ export async function encryptMessage() {
   key = await generateKey()
   iv = getNewIV()
   cipher = await encrypt(message, key, iv)
-  return new Uint8Array(cipher, 0, 5)
+  const stream = new Uint8Array(cipher)
+  const decoder = new TextDecoder()
+  return decoder.decode(stream)
 }
 
 // decrypts the message with the same iv and key 
