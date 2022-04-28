@@ -1,3 +1,10 @@
+# react-encrypt
+
+a small react site to encrypt messages
+
+- [Mozilla Subtle Crypto](https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/decrypt#aes-cbc)
+- [AES-CBC Example](https://github.com/mdn/dom-examples/blob/master/web-crypto/encrypt-decrypt/aes-cbc.js)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
